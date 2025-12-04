@@ -5,13 +5,18 @@ on:
     branches:
       - main
 
+# adjust directory to encrypt and upload
+env:
+  DIR: docs
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
 permissions:
   contents: read
   pages: write
   id-token: write
-
-env:
-  DIR: docs
 
 jobs:
   staticrypt:
