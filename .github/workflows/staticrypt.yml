@@ -1,0 +1,60 @@
+name: staticrypt
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+env:
+  DIR: docs
+
+jobs:
+  staticrypt:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+        with:
+          version: 1.8.26
+      - run: quarto --version
+      - run: quarto render
+
+      - name: Encrypt HTML with StatiCrypt
+        env:
+          REGISTRY: ghcr.io
+          ORG: royfrancis
+          IMAGE: staticrypt:3.5.4
+          STATICRYPT_PASSWORD: ${{ secrets['STATICRYPT_PASSWORD'] }}
+        run: |
+          docker run --rm \
+            -v "${{ github.workspace }}:/home/work" \
+            -w /home/work \
+            ${{ env.REGISTRY }}/${{ env.ORG }}/${{ env.IMAGE }} \
+            ${{ env.DIR }}/* \
+            --recursive \
+            --directory ${{ env.DIR }} \
+            --password "$STATICRYPT_PASSWORD" \
+            --config false
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload encrypted artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ${{ env.DIR }}
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+
+

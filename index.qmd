@@ -1,0 +1,18 @@
+---
+title: "Welcome"
+page-layout: article
+---
+
+# Welcome to the StatiCrypt Quarto Demo
+
+This dummy site demonstrates a minimal Quarto website that can later be wrapped with StatiCrypt-powered password protection. Use the navigation bar to explore additional content.
+
+## Why This Site Exists
+
+- Provide a simple baseline for future automation.
+- Showcase how Quarto structures multi-page sites.
+- Act as a placeholder while secure content is prepared.
+
+## Next Steps
+
+Feel free to replace this text with real content, embed visualizations, or expand the navigation with more pages as your project evolves.

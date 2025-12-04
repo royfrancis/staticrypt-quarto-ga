@@ -1,0 +1,18 @@
+---
+title: "About This Project"
+page-layout: article
+---
+
+# About This Demo
+
+This page provides a bit more context for the placeholder site. It is meant to confirm that navigation between multiple pages functions as expected before adding more advanced features.
+
+## Project Goals
+
+1. Supply a basic Quarto scaffold that can be deployed anywhere.
+2. Integrate smoothly with future StatiCrypt workflows and GitHub Actions.
+3. Offer a clear example for configuring navbar links between pages.
+
+## Contact
+
+If you plan to expand this project, document your deployment steps and security requirements here so collaborators can quickly get oriented.
