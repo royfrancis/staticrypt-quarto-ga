@@ -1,4 +1,4 @@
-# staticrypt-quarto-ga
+# staticrypt-quarto-ga [![action](https://github.com/royfrancis/staticrypt-quarto-ga/workflows/staticrypt/badge.svg)](https://github.com/royfrancis/staticrypt-quarto-ga/actions?workflow=staticrypt)
 
 Password locking quarto website using StatiCrypt and Github actions.
 
